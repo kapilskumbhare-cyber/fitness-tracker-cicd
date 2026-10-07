@@ -1,0 +1,13 @@
+// Phase 2 candidate. Replaces the original Jenkinsfile once the shared library
+// is configured in Jenkins (see README, "Phase 2").
+@Library('jenkins-shared-libraries') _
+
+standardPipeline(
+    appDir    : 'app',
+    image     : 'kind-registry:5000/fitness-tracker',
+    namespace : 'fitness-tracker',
+    deployment: 'fitness-app',
+    container : 'fitness-app',
+    service   : 'fitness-app',
+    port      : 5000
+)
